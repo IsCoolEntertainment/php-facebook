@@ -131,6 +131,7 @@ class OAuth
             'client_secret' => $this->app->getSecret(),
         );
         $response = $this->app->request('oauth/access_token?', $params);
+        var_dump('facebook access token response', $response);die;
         parse_str($response, $components);
 
         // return array "access_token", ...;
