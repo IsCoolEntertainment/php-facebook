@@ -92,11 +92,7 @@ class OAuth
             'code' => $code,
             'redirect_uri' => $redirect_uri,
         );
-        $response = $this->app->request('oauth/access_token', $params);
-        parse_str($response, $components);
-
-        // return array "access_token", ...;
-        return $components;
+        return $this->app->request('oauth/access_token', $params);
     }
 
     public function getAppAccessToken()
@@ -107,11 +103,7 @@ class OAuth
             'grant_type' => 'client_credentials',
         );
 
-        $response = $this->app->request('oauth/access_token', $params);
-        parse_str($response, $components);
-
-        // return array "access_token", ...;
-        return $components;
+        return $this->app->request('oauth/access_token', $params);
     }
 
     /**
@@ -130,10 +122,6 @@ class OAuth
             'client_id' => $this->app->getId(),
             'client_secret' => $this->app->getSecret(),
         );
-        $response = $this->app->request('oauth/access_token?', $params);
-        parse_str($response, $components);
-
-        // return array "access_token", ...;
-        return $components;
+        return $this->app->request('oauth/access_token?', $params);
     }
 }
