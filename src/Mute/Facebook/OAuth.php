@@ -48,7 +48,7 @@ class OAuth
         }
 
         # Creates the URL for oauth authorization for a given callback and optional set of permissions
-        return 'https://www.facebook.com/dialog/oauth?' . http_build_query($options, '', '&');
+        return 'https://www.facebook.com/dialog/oauth?' . http_build_query($options);
     }
 
     /**

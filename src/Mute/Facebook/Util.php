@@ -3,6 +3,7 @@
 namespace Mute\Facebook;
 
 use Mute\Facebook\Exception\InvalidArgumentException;
+use Mute\Facebook\Exception\OAuthSignatureException;
 
 class Util
 {
@@ -47,7 +48,7 @@ class Util
         $signature = static::decodeBase64($encoded_sig);
         $expected_sig = hash_hmac('sha256', $payload, $app_secret, true);
         if ($signature !== $expected_sig) {
-            throw new OAuthSignatureError('Invalid signature');
+            throw new OAuthSignatureException('Invalid signature');
         }
 
         return $data;
